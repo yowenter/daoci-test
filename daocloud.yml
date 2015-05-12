@@ -1,0 +1,26 @@
+# This is a comment line
+
+image: busybox
+
+services:
+  - mysql
+  - redis
+  - mongodb
+
+env:
+  - MYENV=xyz
+
+install:
+  - echo ${MYENV}
+  - echo this is a install line
+
+before_script:
+  - echo ${MYENV}
+  - echo this is a before script line
+
+script:
+  - echo ${MYENV}
+  - echo this is a script line
+  - ping -c 2 mysql
+  - ping -c 2 redis
+  - ping -c 2 mongodb
